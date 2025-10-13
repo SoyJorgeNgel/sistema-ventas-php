@@ -36,9 +36,9 @@ switch ($url) {
         $controller->login();
         break;
     case '/inicio':
-        require_once __DIR__ . '/../app/controllers/SitesController.php';
-        $controller = new SitesCotroller();
-        $controller->inicio();
+        require_once __DIR__ . '/../app/controllers/DashboardController.php';
+        $controller = new DashboardController();
+        $controller->index();
         break;
     case '/apisesion':
         require_once __DIR__ . '/../app/controllers/LoginController.php';

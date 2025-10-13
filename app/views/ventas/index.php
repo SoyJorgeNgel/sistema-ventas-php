@@ -39,7 +39,7 @@ ob_start();
             </div>
             <div class="col-5">
                 <label for="cliente">Cliente</label>
-                <select id="idCliente" class="form-control">
+                <select id="idCliente" class="form-select">
                     <?php foreach ($clientes as $cliente): ?>
                         <option value="<?= $cliente['id'] ?>"><?= $cliente['nombre'] ?></option>
                     <?php endforeach; ?>
