@@ -1,0 +1,17 @@
+# Evita mostrar listado de directorios
+Options -Indexes
+
+RewriteEngine On
+RewriteBase /
+
+# Redirigir raíz a /inicio correctamente en virtualhosts (como .test)
+RewriteCond %{THE_REQUEST} "^[A-Z]{3,9} /(\?| HTTP/)"
+RewriteRule ^$ inicio [R=302,L]
+
+# Si el archivo o directorio existe, no reescribir
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Enviar todo lo demás a index.php
+RewriteRule ^ public/index.php [QSA,L]

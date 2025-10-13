@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Ocultar checkbox */
+  #menu-toggle {
+    display: none;
+  }
+
+  /* Navbar */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    z-index: 3;
+  }
+
+  .navbar h1 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  /* Ícono hamburguesa */
+  .menu-icon {
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .menu-icon span {
+    background: white;
+    height: 3px;
+    width: 100%;
+    transition: 0.3s;
+  }
+
+  /* Menú lateral */
+  .side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: #222;
+    padding-top: 60px; /* para dejar espacio a la navbar */
+    transition: 0.3s;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .side-menu a {
+    color: white;
+    padding: 1rem;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+
+  .side-menu a:hover {
+    background: #444;
+  }
+
+  /* Mostrar menú cuando está activo */
+  #menu-toggle:checked ~ .side-menu {
+    left: 0;
+  }
+
+  /* Animar ícono */
+  #menu-toggle:checked ~ .navbar .menu-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  #menu-toggle:checked ~ .navbar .menu-icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #menu-toggle:checked ~ .navbar .menu-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  /* Contenido principal */
+  .content {
+    margin-top: 60px;
+    padding: 1rem;
+  }
