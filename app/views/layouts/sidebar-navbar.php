@@ -240,18 +240,18 @@
             <!-- Menú de navegación -->
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.php" data-page="dashboard">
+                    <a class="nav-link active" href="/inicio" data-page="inicio">
                         <i class="bi bi-house-door"></i>
                         Dashboard
                     </a>
                 </li>
-                <?php if($_SESSION['rol'] == '1'){ ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="/usuarios" data-page="usuarios">
-                        <i class="bi bi-people"></i>
-                        Usuarios
-                    </a>
-                </li>
+                <?php if ($_SESSION['rol'] == '1') { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/usuarios" data-page="usuarios">
+                            <i class="bi bi-people"></i>
+                            Usuarios
+                        </a>
+                    </li>
                 <?php } ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/productos" data-page="productos">
@@ -260,13 +260,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/proveedores" data-page="productos">
+                    <a class="nav-link" href="/proveedores" data-page="proveedores">
                         <i class="bi bi-truck"></i>
                         Proveedores
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/clientes" data-page="productos">
+                    <a class="nav-link" href="/clientes" data-page="clientes">
                         <i class="bi bi-people"></i>
                         Clientes
                     </a>
@@ -278,28 +278,28 @@
                     </a>
                 </li>
                 <?php
-                if($_SESSION['rol'] == '1'){ ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="/compras" data-page="compras">
-                        <i class="bi bi-box-seam"></i>
-                        Compras
-                    </a>
-                </li>
-                
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="reportes.php" data-page="reportes">
-                        <i class="bi bi-file-earmark-text"></i>
-                        Reportes
-                    </a>
-                </li>
+                if ($_SESSION['rol'] == '1') { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/compras" data-page="compras">
+                            <i class="bi bi-box-seam"></i>
+                            Compras
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="configuracion.php" data-page="configuracion">
-                        <i class="bi bi-gear"></i>
-                        Configuración
-                    </a>
-                </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reportes.php" data-page="reportes">
+                            <i class="bi bi-file-earmark-text"></i>
+                            Reportes
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="configuracion.php" data-page="configuracion">
+                            <i class="bi bi-gear"></i>
+                            Configuración
+                        </a>
+                    </li>
                 <?php } ?>
             </ul>
 
@@ -380,6 +380,14 @@
                     mainContent.classList.remove('expanded');
                 }
             });
+        });
+        const currentPage = window.location.pathname.split("/")[1]; // obtiene 'ventas'
+        document.querySelectorAll('.nav-link').forEach(link => {
+            if (link.dataset.page === currentPage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
         });
     </script>
     <!-- Scripts adicionales -->
