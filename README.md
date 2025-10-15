@@ -27,4 +27,8 @@ Actualmente el sistema es funcional, aunque aún se están implementando módulo
 - Módulo de **configuración general** (nombre de tienda, logo, dirección, teléfono)
 - Mejoras de seguridad y control de permisos por rol
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 58bd1 (chore(git): add .gitignore file)
 ![Captura del sistema](public/assets/image.png)
