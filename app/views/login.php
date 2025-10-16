@@ -17,6 +17,9 @@
         <div class="w-75"> <!-- Controla el ancho del formulario -->
           <h1 class="mb-4 text-center">Inicio de sesión</h1>
           <form id="login">
+            <div id="alert" style="display: none;" class="alert alert-danger" role="alert">
+              Usuario o contraseña incorrectos
+            </div>
             <div class="mb-3">
               <label for="email" class="form-label">Correo electrónico:</label>
               <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="ejemplo@correo.com">
@@ -49,21 +52,23 @@
       };
 
       fetch(
-        'http://sistema-ventas.test/apisesion', 
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type' : 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
+          'http://sistema-ventas.test/apisesion', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          })
         .then(response => response.json())
         .then(responseData => {
-          if (responseData != false) {
+          if (responseData === true) {
+            document.getElementById("alert").style.display = "none";
             window.location.href = "/inicio"
+          } else {
+            document.getElementById("alert").style.display = "block";
+
           }
-        }
-        )
+        })
         .catch(error => console.error('Error:', error));
     })
   </script>

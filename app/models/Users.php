@@ -30,9 +30,9 @@ class Users
             ':rol' => $data['rol'],
             ':id' => $data['id']
         ]);
-        
     }
-    public static function delete($id) {
+    public static function delete($id)
+    {
         $db = Database::connect();
         $stmt = $db->prepare("UPDATE usuarios SET estado = 0 WHERE id = $id");
         $stmt->execute();
